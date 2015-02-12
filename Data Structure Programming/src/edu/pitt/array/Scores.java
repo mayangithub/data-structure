@@ -1,5 +1,7 @@
 package edu.pitt.array;
 
+import javax.tools.JavaCompiler;
+
 /**
  * Scores class
  * to include functions of array
@@ -137,6 +139,53 @@ public class Scores {
 			entries[i] = entries[i-1];
 		}
 		entries[i] = e;
+	}
+
+	/**
+	 * remove the entry at index i
+	 * @param i index, entry position
+	 * @return removed entry
+	 * @throws IndexOutOfBoundsException when i is invalid
+	 * 
+	 * Note:
+	 * 1. the last entry set to null
+	 * 2. reduce numEntries
+	 */
+	public GameEntry remove(int i) throws IndexOutOfBoundsException {
+		if ((i < 0) || (i >= numEntries)) {
+			throw new IndexOutOfBoundsException("Invalid index: " + i);
+		}
+		
+		GameEntry temp = entries[i];
+		
+		for (int j = i; j < numEntries - 1; j++) {
+			entries[j] = entries[j + 1];
+		}
+		entries[numEntries - 1] = null;
+		numEntries--;
+		return temp;
+	}
+	
+	
+	public static void insertionSort(char[] a) {
+		int n = a.length;
+		for (int i = 1; i < n; i++) {
+			char cur = a[i];
+			int j = i - 1;
+			//System.out.println("j:"+j);
+			while((j >= 0) && (cur < a[j])) { 
+				/* the order of two conditions is quite important
+				*  otherwise, will throw IndexOutOfBoundsException
+				*  when the first condition can be met
+				*  will jump out of the loop, not execute the second condition check
+				*/
+				a[j+1] = a[j];
+				j--;
+			}
+			a[j+1] = cur;
+			
+			//System.out.println(java.util.Arrays.toString(a));
+		}
 	}
 	
 	

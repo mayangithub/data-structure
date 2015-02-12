@@ -19,48 +19,57 @@ public class Test {
 		GameEntry john = new GameEntry("John", 200);
 		
 		scores.addUnique(jack);
-		
-		String scoreString = scores.toString();
-		System.out.println(scores.numEntries + "  jack  " + scoreString);
-		
 		scores.addUnique(jill);
-		System.out.println(scores.numEntries + " jill " + scores.toString());
-		
 		scores.addUnique(rose);
-		System.out.println(scores.numEntries + " rose " + scores.toString());
-		
 		scores.addUnique(rob);
-		System.out.println(scores.numEntries + " rob " + scores.toString());
-		
 		scores.addUnique(mike);
-		System.out.println(scores.numEntries + " mike " + scores.toString());
-		
 		scores.addUnique(anna);
-		System.out.println(scores.numEntries + " anna " + scores.toString());
-
 		scores.addUnique(paul);
-		System.out.println(scores.numEntries + " paul " + scores.toString());
-
 		scores.addUnique(mike);
-		System.out.println(scores.numEntries + " mike " + scores.toString());
-		
 		scores.addUnique(rob);
-		System.out.println(scores.numEntries + " rob " + scores.toString());
-		
 		scores.addUnique(anna);
-		System.out.println(scores.numEntries + " anna " + scores.toString());
-		
 		scores.addUnique(sue);
-		System.out.println(scores.numEntries + " sue " + scores.toString());
-		
 		scores.addUnique(sue);
-		System.out.println(scores.numEntries + " sue " + scores.toString());
-		
 		scores.addUnique(john);
-		System.out.println(scores.numEntries + " john " + scores.toString());
+		System.out.println(scores.toString());
 		
 		
+		scores.remove(3);
+		System.out.println(scores.toString());
+		scores.remove(5);
+		System.out.println(scores.toString());
 		
+		char[] array = {'B', 'C', 'D', 'A', 'E', 'H', 'G', 'F'};
+		scores.insertionSort(array);
+		
+		
+		/**
+		 * Some simple methods of java.util.Arrays
+		 */
+		
+		int[] A = {1,2,3,4,5,6};
+		int[] B = {2,3,4,5,6,7};
+		int[] C = {1,3,5,7,9,6};
+		
+		boolean equal = java.util.Arrays.equals(A, B);
+		System.out.println("Is A and B equal? " + equal);
+		
+		int[] D = new int[8];
+		java.util.Arrays.fill(D, 3);
+		System.out.println("D: " + java.util.Arrays.toString(D));
+		
+		D = java.util.Arrays.copyOf(A, 3);
+		System.out.println("D: " + java.util.Arrays.toString(D));
+		
+		D = java.util.Arrays.copyOf(A, 8);
+		System.out.println("D: " + java.util.Arrays.toString(D));
+		
+		D = java.util.Arrays.copyOfRange(A, 2, 10);
+		System.out.println("D: " + java.util.Arrays.toString(D));
+		
+		int[] E = {23,67,45,36,92,38,74,59};
+		java.util.Arrays.sort(E);
+		System.out.println("E: " + java.util.Arrays.toString(E));
 	}
 
 }
